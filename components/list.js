@@ -22,14 +22,20 @@ function List({ title, handleDrop, id, cards, setDragged, handleAddCardSubmit })
             <Card key={index} {...card} setDragged={setDragged} />
           ))}
           {isAddingCard && activeListId === id && (
-            <div className="flex gap-2">
-              <input className="rounded-md px-7"
+            <div className="flex flex-col max-w-sm gap-2">
+              <input className="px-5 py-2 rounded-md"
                 type="text"
                 placeholder="Nuevo título de tarjeta"
                 value={newCardTitle}
                 onChange={(e) => setNewCardTitle(e.target.value)}
-              />
-              <button className="px-3 rounded-md bg-lime-900 text-slate-100"
+                style={{
+                  backgroundImage: 'url("comments.svg")', 
+                  backgroundPosition: 'right center',
+                  backgroundRepeat: 'no-repeat',
+                }}
+             />
+                
+              <button className="w-32 py-3 rounded-md bg-lime-900 text-slate-100"
                 onClick={() => {
                   handleAddCardSubmit(activeListId, newCardTitle);
                   setIsAddingCard(false);
